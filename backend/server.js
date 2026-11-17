@@ -8,16 +8,20 @@ const customerRoutes = require("./routes/customerRoutes");
 const assetRoutes = require("./routes/assetRoutes");
 const serviceRequestRoutes = require("./routes/serviceRequestRoutes");
 const authRoutes = require("./routes/authRoutes");
-
+const jobRoutes = require("./routes/jobRoutes");
+const diagnosisRoutes = require("./routes/diagnosisRoutes");
+const evidenceRoutes = require("./routes/evidenceRoutes");
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
-
+app.use("/api/jobs", jobRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/assets", assetRoutes);
 app.use("/api/service-requests", serviceRequestRoutes);
+app.use("/api/diagnosis", diagnosisRoutes);
+app.use("/api/evidence", evidenceRoutes);
 
 app.get("/", (req, res) => {
   res.json({
